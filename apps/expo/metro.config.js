@@ -16,6 +16,19 @@ config.resolver.nodeModulesPaths = [
   path.resolve(workspaceRoot, 'node_modules'),
 ]
 
+config.resolver.resolveRequest = (context, moduleName, platform) => {
+  if (moduleName.startsWith('graphql-request')) {
+    return {
+      filePath: `${__dirname}/node_modules/graphql-request/build/esm/index.js`,
+      type: 'sourceFile',
+    }
+  }
+
+  return context.resolveRequest(context, moduleName, platform)
+}
+
+config.resolver.unstable_enablePackageExports = true
+
 config.transformer = { ...config.transformer, unstable_allowRequireContext: true }
 config.transformer.minifierPath = require.resolve('metro-minify-terser')
 
