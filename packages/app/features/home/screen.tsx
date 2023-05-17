@@ -12,23 +12,11 @@ import {
 import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
 import React, { useState } from 'react'
 import { useLink } from 'solito/link'
-import { request } from 'graphql-request'
 
 export function HomeScreen() {
   const linkProps = useLink({
     href: '/user/nate',
   })
-
-  request(
-    'https://foo.bar/graphql',
-    `
-  {
-    query {
-      users
-    }
-  }
-`
-  )
 
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space>

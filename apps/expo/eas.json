@@ -1,16 +1,29 @@
 {
   "build": {
     "development": {
+      "developmentClient": true,
       "distribution": "internal",
       "android": {
         "buildType": "apk"
       },
       "ios": {
         "simulator": true,
-        "image": "latest"
+        "image": "latest",
+        "resourceClass": "m-medium"
       },
       "env": {
         "TAMAGUI_TARGET": "native"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "node": "18.13.0",
+      "yarn": "1.22.19",
+      "env": {
+        "TAMAGUI_TARGET": "native"
+      },
+      "ios": {
+        "resourceClass": "m-medium"
       }
     },
     "production": {
@@ -18,8 +31,13 @@
       "android": {
         "buildType": "app-bundle"
       },
+      "node": "18.13.0",
+      "yarn": "1.22.19",
       "env": {
         "TAMAGUI_TARGET": "native"
+      },
+      "ios": {
+        "resourceClass": "m-medium"
       }
     }
   }
